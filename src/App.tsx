@@ -331,6 +331,58 @@ export default function App() {
         </div>
       </section>
 
+      {/* ===== COMMUNITY SECTION ===== */}
+      <section className="w-full bg-white py-14 sm:py-20">
+        <div className="mx-auto max-w-3xl px-6 flex flex-col items-center text-center">
+
+          {/* Title */}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-black leading-tight mb-8 text-balance">
+            Seguí aprendiendo en la Comunidad de Emprendedores de Novolabs
+          </h2>
+
+          {/* Checkmark bullets — centered column */}
+          <ul className="flex flex-col items-start gap-4 mb-10">
+            {[
+              "Accede a más contenido gratuito",
+              "Sesiones en vivo semanales",
+              "Conecta con emprendedores de 18 países",
+            ].map((item) => (
+              <li key={item} className="flex items-center gap-3 text-black text-lg sm:text-xl font-medium">
+                <span className="flex-shrink-0 w-7 h-7 bg-green-500 rounded-md flex items-center justify-center">
+                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </span>
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          {/* Community image */}
+          <div className="w-full rounded-2xl overflow-hidden shadow-xl mb-10">
+            <img
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-62mD424J67mVh5ZtkinA93nAKaTsG3.png"
+              alt="Plataforma de la Comunidad de Emprendedores de Novolabs con los fundadores"
+              className="w-full h-auto object-cover"
+            />
+          </div>
+
+          {/* CTA Button */}
+          <a
+            href="https://www.skool.com/novolabs-startup-school/about"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-12 py-4 text-white font-extrabold text-lg sm:text-xl rounded-full transition-colors tracking-widest shadow-md"
+            style={{ backgroundColor: "var(--nl-rojo)" }}
+            onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#E63218")}
+            onMouseLeave={e => (e.currentTarget.style.backgroundColor = "var(--nl-rojo)")}
+          >
+            ACCEDER A LA COMUNIDAD
+          </a>
+
+        </div>
+      </section>
+
       {/* ===== TESTIMONIALS STRIP ===== */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 pb-6 sm:pb-10">
         <div className="text-center py-8 sm:py-12">
