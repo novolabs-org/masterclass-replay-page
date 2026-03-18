@@ -332,31 +332,31 @@ export default function App() {
       </section>
 
       {/* ===== COMMUNITY SECTION ===== */}
-      <section className="w-full bg-white py-12 sm:py-16 md:py-20">
+      <section className="w-full bg-white py-16 sm:py-20 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
             {/* Left column: Text content */}
             <div className="flex flex-col justify-center">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-6 sm:mb-8 leading-tight">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-8 sm:mb-10 leading-tight">
                 Seguí aprendiendo en la Comunidad de Emprendedores de Novolabs
               </h2>
               
               {/* Community benefits - checkmarks */}
-              <ul className="space-y-4 sm:space-y-5 mb-8 sm:mb-10">
-                <li className="flex items-center gap-3 text-black text-base sm:text-lg">
-                  <svg className="w-6 h-6 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+              <ul className="space-y-5 sm:space-y-6 mb-10 sm:mb-12">
+                <li className="flex items-center gap-4 text-black text-lg sm:text-xl">
+                  <svg className="w-7 h-7 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span className="font-medium">Accede a más contenido gratuito</span>
                 </li>
-                <li className="flex items-center gap-3 text-black text-base sm:text-lg">
-                  <svg className="w-6 h-6 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <li className="flex items-center gap-4 text-black text-lg sm:text-xl">
+                  <svg className="w-7 h-7 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span className="font-medium">Sesiones en vivo semanales</span>
                 </li>
-                <li className="flex items-center gap-3 text-black text-base sm:text-lg">
-                  <svg className="w-6 h-6 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <li className="flex items-center gap-4 text-black text-lg sm:text-xl">
+                  <svg className="w-7 h-7 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span className="font-medium">Conecta con emprendedores de 18 países</span>
@@ -368,7 +368,7 @@ export default function App() {
                 href={CONFIG.bookCallCta}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block px-8 py-3 sm:py-4 bg-[#FF3A20] hover:bg-[#E63218] text-white font-bold text-base sm:text-lg rounded-full transition-colors w-fit"
+                className="inline-block px-10 py-4 sm:py-5 bg-[#FF3A20] hover:bg-[#E63218] text-white font-bold text-lg sm:text-xl rounded-full transition-colors w-fit shadow-lg"
               >
                 ACCEDER A LA COMUNIDAD
               </a>
