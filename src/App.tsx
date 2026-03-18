@@ -240,7 +240,7 @@ export default function App() {
         <div className="flex flex-col items-center">
           {/* Título centrado */}
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight text-center">
-            Las 3 horas de grabación de la Masterclass
+            Aprende a lanzar tu proyecto y conseguir los primeros clientes paso a paso 👇
           </h1>
 
           {/* Video container centrado */}
