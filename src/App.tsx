@@ -333,62 +333,84 @@ export default function App() {
 
       {/* ===== COMMUNITY SECTION ===== */}
       <section
-        className="w-full py-16 sm:py-24"
+        className="w-full py-16 sm:py-20"
         style={{ backgroundColor: CONFIG.brand.white }}
       >
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 flex flex-col items-center text-center">
-
-          {/* Title — same size as hero h1 */}
+        <div
+          className="mx-auto max-w-4xl px-4 sm:px-8"
+          style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}
+        >
+          {/* Title */}
           <h2
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-8 max-w-2xl"
-            style={{ color: CONFIG.brand.black }}
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-8"
+            style={{ color: CONFIG.brand.black, maxWidth: "700px" }}
           >
             Seguí aprendiendo en la Comunidad de Emprendedores de Novolabs
           </h2>
 
-          {/* Checkmark bullets */}
-          <ul className="flex flex-col items-start gap-4 mb-10">
+          {/* Checkmark bullets — left-aligned block, centered within container */}
+          <div className="mb-10" style={{ display: "flex", flexDirection: "column", gap: "16px", alignItems: "flex-start" }}>
             {[
               "Accede a más contenido gratuito",
               "Sesiones en vivo semanales",
               "Conecta con emprendedores de 18 países",
             ].map((item) => (
-              <li key={item} className="flex items-center gap-3 text-lg sm:text-xl font-medium" style={{ color: CONFIG.brand.black }}>
+              <div key={item} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                 <span
-                  className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center"
-                  style={{ backgroundColor: "#22C55E" }}
+                  style={{
+                    flexShrink: 0,
+                    width: "32px",
+                    height: "32px",
+                    backgroundColor: "#22C55E",
+                    borderRadius: "8px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
                 >
-                  <svg className="w-5 h-5" style={{ color: CONFIG.brand.white }} fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </span>
-                {item}
-              </li>
+                <span style={{ color: CONFIG.brand.black, fontSize: "20px", fontWeight: 500 }}>{item}</span>
+              </div>
             ))}
-          </ul>
+          </div>
 
           {/* Community image */}
-          <div className="w-full max-w-2xl rounded-2xl overflow-hidden shadow-lg mb-10">
-            <img
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-62mD424J67mVh5ZtkinA93nAKaTsG3.png"
-              alt="Plataforma de la Comunidad de Emprendedores de Novolabs con los fundadores"
+          <div
+            className="w-full mb-10"
+            style={{ maxWidth: "720px", borderRadius: "20px", overflow: "hidden", boxShadow: "0 8px 40px rgba(0,0,0,0.12)" }}
+          >
+            <ImageWithFallback
+              src={communityImage}
+              alt="Plataforma de la Comunidad de Emprendedores de Novolabs"
               className="w-full h-auto"
+              style={{ display: "block" }}
             />
           </div>
 
-          {/* CTA Button — same pattern as rest of site */}
+          {/* CTA Button */}
           <a
             href="https://www.skool.com/novolabs-startup-school/about"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-10 py-4 text-white font-extrabold text-base sm:text-lg rounded-full transition-colors shadow-lg"
-            style={{ backgroundColor: CONFIG.brand.rojo }}
+            className="inline-block font-extrabold tracking-wider transition-colors"
+            style={{
+              backgroundColor: CONFIG.brand.rojo,
+              color: CONFIG.brand.white,
+              padding: "16px 48px",
+              borderRadius: "999px",
+              fontSize: "16px",
+              letterSpacing: "0.08em",
+              boxShadow: "0 4px 20px rgba(255,58,32,0.35)",
+              textDecoration: "none",
+            }}
             onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#E63218")}
             onMouseLeave={e => (e.currentTarget.style.backgroundColor = CONFIG.brand.rojo)}
           >
             ACCEDER A LA COMUNIDAD
           </a>
-
         </div>
       </section>
 
