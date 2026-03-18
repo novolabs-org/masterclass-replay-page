@@ -332,60 +332,52 @@ export default function App() {
       </section>
 
       {/* ===== COMMUNITY SECTION ===== */}
-      <section className="w-full bg-white py-16 sm:py-20 md:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
-            {/* Left column: Text content */}
-            <div className="flex flex-col justify-center">
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-8 sm:mb-10 leading-tight">
-                Seguí aprendiendo en la Comunidad de Emprendedores de Novolabs
-              </h2>
-              
-              {/* Community benefits - checkmarks */}
-              <ul className="space-y-5 sm:space-y-6 mb-10 sm:mb-12">
-                <li className="flex items-center gap-4 text-black text-lg sm:text-xl">
-                  <svg className="w-7 h-7 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+      <section className="w-full bg-white py-14 sm:py-20">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 flex flex-col items-center text-center">
+
+          {/* Title */}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-black leading-tight mb-8 text-balance">
+            Seguí aprendiendo en la Comunidad de Emprendedores de Novolabs
+          </h2>
+
+          {/* Checkmark bullets */}
+          <ul className="flex flex-col items-start gap-4 mb-10">
+            {[
+              "Accede a más contenido gratuito",
+              "Sesiones en vivo semanales",
+              "Conecta con emprendedores de 18 países",
+            ].map((item) => (
+              <li key={item} className="flex items-center gap-3 text-black text-lg sm:text-xl font-medium">
+                <span className="flex-shrink-0 w-8 h-8 bg-green-500 rounded-md flex items-center justify-center">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
-                  <span className="font-medium">Accede a más contenido gratuito</span>
-                </li>
-                <li className="flex items-center gap-4 text-black text-lg sm:text-xl">
-                  <svg className="w-7 h-7 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  <span className="font-medium">Sesiones en vivo semanales</span>
-                </li>
-                <li className="flex items-center gap-4 text-black text-lg sm:text-xl">
-                  <svg className="w-7 h-7 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  <span className="font-medium">Conecta con emprendedores de 18 países</span>
-                </li>
-              </ul>
-              
-              {/* CTA Button */}
-              <a 
-                href={CONFIG.bookCallCta}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block px-10 py-4 sm:py-5 bg-[#FF3A20] hover:bg-[#E63218] text-white font-bold text-lg sm:text-xl rounded-full transition-colors w-fit shadow-lg"
-              >
-                ACCEDER A LA COMUNIDAD
-              </a>
-            </div>
-            
-            {/* Right column: Image placeholder */}
-            <div className="flex justify-center">
-              <div className="w-full max-w-sm h-96 bg-gray-300 rounded-2xl flex items-center justify-center shadow-lg">
-                <div className="text-center">
-                  <svg className="w-16 h-16 text-gray-500 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                  <p className="text-gray-500 font-medium">Imagen de la comunidad</p>
-                </div>
-              </div>
+                </span>
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          {/* Image placeholder */}
+          <div className="w-full rounded-2xl overflow-hidden shadow-xl mb-10 bg-gray-200 flex items-center justify-center" style={{ minHeight: 380 }}>
+            <div className="flex flex-col items-center gap-3 py-24">
+              <svg className="w-14 h-14 text-gray-400" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3 20.25h18A2.25 2.25 0 0023.25 18V6A2.25 2.25 0 0021 3.75H3A2.25 2.25 0 00.75 6v12A2.25 2.25 0 003 20.25z" />
+              </svg>
+              <p className="text-gray-400 font-medium text-base">Imagen de la comunidad</p>
             </div>
           </div>
+
+          {/* CTA Button */}
+          <a
+            href={CONFIG.bookCallCta}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-12 py-4 bg-[#FF3A20] hover:bg-[#E63218] text-white font-extrabold text-lg sm:text-xl rounded-full transition-colors tracking-wide shadow-md"
+          >
+            ACCEDER A LA COMUNIDAD
+          </a>
+
         </div>
       </section>
 
