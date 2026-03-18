@@ -258,7 +258,7 @@ export default function App() {
               </div>
             ) : (
               <iframe
-                src="https://streamable.com/e/j8fj99"
+                src="https://streamable.com/e/oflk1r"
                 title="Masterclass Replay"
                 frameBorder="0"
                 allowFullScreen
@@ -328,6 +328,89 @@ export default function App() {
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* ===== COMMUNITY SECTION ===== */}
+      <section
+        className="w-full py-16 sm:py-20"
+        style={{ backgroundColor: CONFIG.brand.white }}
+      >
+        <div
+          className="mx-auto max-w-4xl px-4 sm:px-8"
+          style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}
+        >
+          {/* Title */}
+          <h2
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-8"
+            style={{ color: CONFIG.brand.black, maxWidth: "700px" }}
+          >
+            Seguí aprendiendo en la Comunidad de Emprendedores de Novolabs
+          </h2>
+
+          {/* Checkmark bullets — left-aligned block, centered within container */}
+          <div className="mb-10" style={{ display: "flex", flexDirection: "column", gap: "16px", alignItems: "flex-start" }}>
+            {[
+              "Accede a más contenido gratuito",
+              "Sesiones en vivo semanales",
+              "Conecta con emprendedores de 18 países",
+            ].map((item) => (
+              <div key={item} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                <span
+                  style={{
+                    flexShrink: 0,
+                    width: "32px",
+                    height: "32px",
+                    backgroundColor: "#22C55E",
+                    borderRadius: "8px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </span>
+                <span style={{ color: CONFIG.brand.black, fontSize: "20px", fontWeight: 500 }}>{item}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Community image */}
+          <div
+            className="w-full mb-10"
+            style={{ maxWidth: "720px", borderRadius: "20px", overflow: "hidden", boxShadow: "0 8px 40px rgba(0,0,0,0.12)" }}
+          >
+            <ImageWithFallback
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-oIRAHXnldJK4fhQ3PN8FiHSjSj5lbt.png"
+              alt="Plataforma de la Comunidad de Emprendedores de Novolabs"
+              className="w-full h-auto"
+              style={{ display: "block" }}
+            />
+          </div>
+
+          {/* CTA Button */}
+          <a
+            href="https://www.skool.com/novolabs-startup-school/about"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block font-extrabold tracking-wider transition-colors"
+            style={{
+              backgroundColor: CONFIG.brand.rojo,
+              color: CONFIG.brand.white,
+              padding: "16px 48px",
+              borderRadius: "999px",
+              fontSize: "16px",
+              letterSpacing: "0.08em",
+              boxShadow: "0 4px 20px rgba(255,58,32,0.35)",
+              textDecoration: "none",
+            }}
+            onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#E63218")}
+            onMouseLeave={e => (e.currentTarget.style.backgroundColor = CONFIG.brand.rojo)}
+          >
+            ACCEDER A LA COMUNIDAD
+          </a>
         </div>
       </section>
 
