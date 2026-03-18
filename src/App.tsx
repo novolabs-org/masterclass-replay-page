@@ -383,7 +383,7 @@ export default function App() {
             style={{ maxWidth: "720px", borderRadius: "20px", overflow: "hidden", boxShadow: "0 8px 40px rgba(0,0,0,0.12)" }}
           >
             <ImageWithFallback
-              src={communityImage}
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-oIRAHXnldJK4fhQ3PN8FiHSjSj5lbt.png"
               alt="Plataforma de la Comunidad de Emprendedores de Novolabs"
               className="w-full h-auto"
               style={{ display: "block" }}
