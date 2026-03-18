@@ -332,24 +332,24 @@ export default function App() {
       </section>
 
       {/* ===== COMMUNITY SECTION ===== */}
-      <section className="w-full bg-white py-14 sm:py-20">
-        <div className="mx-auto max-w-3xl px-6 flex flex-col items-center text-center">
+      <section className="w-full bg-white py-16 sm:py-24">
+        <div className="mx-auto max-w-4xl px-6 flex flex-col items-center text-center">
 
           {/* Title */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-black leading-tight mb-8 text-balance">
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-black leading-tight mb-10 text-balance max-w-2xl">
             Seguí aprendiendo en la Comunidad de Emprendedores de Novolabs
           </h2>
 
-          {/* Checkmark bullets — centered column */}
-          <ul className="flex flex-col items-start gap-4 mb-10">
+          {/* Checkmark bullets */}
+          <ul className="flex flex-col items-start gap-5 mb-12">
             {[
               "Accede a más contenido gratuito",
               "Sesiones en vivo semanales",
               "Conecta con emprendedores de 18 países",
             ].map((item) => (
-              <li key={item} className="flex items-center gap-3 text-black text-lg sm:text-xl font-medium">
-                <span className="flex-shrink-0 w-7 h-7 bg-green-500 rounded-md flex items-center justify-center">
-                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
+              <li key={item} className="flex items-center gap-3 text-black text-xl font-medium">
+                <span className="flex-shrink-0 w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
                 </span>
@@ -358,8 +358,8 @@ export default function App() {
             ))}
           </ul>
 
-          {/* Community image */}
-          <div className="w-full rounded-2xl overflow-hidden shadow-xl mb-10">
+          {/* Community image — ~65% width, centered, rounded with soft shadow */}
+          <div className="w-full max-w-2xl rounded-2xl overflow-hidden shadow-lg mb-12">
             <img
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-62mD424J67mVh5ZtkinA93nAKaTsG3.png"
               alt="Plataforma de la Comunidad de Emprendedores de Novolabs con los fundadores"
@@ -372,10 +372,10 @@ export default function App() {
             href="https://www.skool.com/novolabs-startup-school/about"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-12 py-4 text-white font-extrabold text-lg sm:text-xl rounded-full transition-colors tracking-widest shadow-md"
-            style={{ backgroundColor: "var(--nl-rojo)" }}
+            className="inline-block px-14 py-4 text-white font-extrabold text-lg tracking-wider rounded-xl transition-colors shadow-md"
+            style={{ backgroundColor: "#FF3A20" }}
             onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#E63218")}
-            onMouseLeave={e => (e.currentTarget.style.backgroundColor = "var(--nl-rojo)")}
+            onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#FF3A20")}
           >
             ACCEDER A LA COMUNIDAD
           </a>
