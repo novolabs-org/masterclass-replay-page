@@ -258,7 +258,7 @@ export default function App() {
               </div>
             ) : (
               <iframe
-                src="https://streamable.com/e/oflk1r"
+                src="https://streamable.com/e/9cw9aq"
                 title="Masterclass Replay"
                 frameBorder="0"
                 allowFullScreen
@@ -343,13 +343,13 @@ export default function App() {
           {/* Title */}
           <h2
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-8"
-            style={{ color: CONFIG.brand.black, maxWidth: "700px" }}
+            style={{ color: CONFIG.brand.black, maxWidth: "700px", marginTop: "32px" }}
           >
             Seguí aprendiendo en la Comunidad de Emprendedores de Novolabs
           </h2>
 
           {/* Checkmark bullets — left-aligned block, centered within container */}
-          <div className="mb-10" style={{ display: "flex", flexDirection: "column", gap: "16px", alignItems: "flex-start" }}>
+          <div className="mb-10" style={{ display: "flex", flexDirection: "column", gap: "16px", alignItems: "flex-start", marginBottom: "32px" }}>
             {[
               "Accede a más contenido gratuito",
               "Sesiones en vivo semanales",
@@ -372,7 +372,7 @@ export default function App() {
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </span>
-                <span style={{ color: CONFIG.brand.black, fontSize: "20px", fontWeight: 500 }}>{item}</span>
+                <span style={{ color: CONFIG.brand.black, fontSize: "20px", fontWeight: 500, marginBottom: "0px" }}>{item}</span>
               </div>
             ))}
           </div>
@@ -386,7 +386,7 @@ export default function App() {
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-oIRAHXnldJK4fhQ3PN8FiHSjSj5lbt.png"
               alt="Plataforma de la Comunidad de Emprendedores de Novolabs"
               className="w-full h-auto"
-              style={{ display: "block" }}
+              style={{ display: "block", marginTop: "0", marginBottom: "4px" }}
             />
           </div>
 
@@ -405,6 +405,8 @@ export default function App() {
               letterSpacing: "0.08em",
               boxShadow: "0 4px 20px rgba(255,58,32,0.35)",
               textDecoration: "none",
+              marginTop: "16px",
+              marginBottom: "32px",
             }}
             onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#E63218")}
             onMouseLeave={e => (e.currentTarget.style.backgroundColor = CONFIG.brand.rojo)}
