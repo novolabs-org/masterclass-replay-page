@@ -749,56 +749,71 @@ export default function App() {
             </p>
 
             {/* ── PRICING CARD ── */}
-            <div className="w-full max-w-[460px]">
-              <div
-                className="rounded-3xl overflow-hidden"
-                style={{
-                  background: "#141414",
-                  border: "1px solid rgba(255,255,255,0.09)",
-                  boxShadow: "0 8px 40px rgba(0,0,0,0.5)",
-                }}
-              >
+            <div style={{ width: "100%", maxWidth: "460px" }}>
+              <div style={{
+                background: "#181818",
+                border: "1px solid rgba(255,255,255,0.11)",
+                borderRadius: "20px",
+                overflow: "hidden",
+                boxShadow: "0 8px 48px rgba(0,0,0,0.6)",
+              }}>
 
-                {/* ── 1. COUNTDOWN ── */}
-                <div
-                  className="flex items-center justify-center gap-2.5 py-3.5 px-6"
-                  style={{ background: "#0f0f0f", borderBottom: "1px solid rgba(255,255,255,0.07)" }}
-                >
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: "var(--nl-rojo)", flexShrink: 0 }}>
+                {/* 1 — COUNTDOWN */}
+                <div style={{
+                  background: "#111",
+                  borderBottom: "1px solid rgba(255,255,255,0.08)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "8px",
+                  padding: "12px 24px",
+                }}>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ff3a20" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
                     <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
                   </svg>
-                  <span className="text-white/45 text-xs font-medium tracking-wide">Oferta termina en</span>
-                  <span className="font-mono font-bold text-sm tabular-nums" style={{ color: "var(--nl-rojo)" }}>
+                  <span style={{ color: "rgba(255,255,255,0.5)", fontSize: "12px", fontWeight: 500, letterSpacing: "0.04em" }}>
+                    Oferta termina en
+                  </span>
+                  <span style={{ color: "#ff3a20", fontSize: "14px", fontWeight: 700, fontFamily: "monospace", fontVariantNumeric: "tabular-nums" }}>
                     {String(offerTimer.hours).padStart(2, "0")}:{String(offerTimer.minutes).padStart(2, "0")}:{String(offerTimer.seconds).padStart(2, "0")}
                   </span>
                 </div>
 
-                {/* ── 2. PRICE BLOCK ── */}
-                <div className="px-8 pt-9 pb-8">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span
-                      className="text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full"
-                      style={{ background: "rgba(255,58,32,0.12)", color: "var(--nl-rojo)", border: "1px solid rgba(255,58,32,0.20)" }}
-                    >
-                      50% OFF
-                    </span>
-                    <span className="text-white/30 line-through text-sm">$780 USD</span>
+                {/* 2 — PRICE */}
+                <div style={{ padding: "36px 36px 28px" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
+                    <span style={{
+                      background: "rgba(255,58,32,0.13)",
+                      color: "#ff3a20",
+                      border: "1px solid rgba(255,58,32,0.25)",
+                      borderRadius: "100px",
+                      fontSize: "11px",
+                      fontWeight: 700,
+                      letterSpacing: "0.1em",
+                      textTransform: "uppercase",
+                      padding: "4px 12px",
+                    }}>50% OFF</span>
+                    <span style={{ color: "rgba(255,255,255,0.3)", textDecoration: "line-through", fontSize: "14px" }}>$780 USD</span>
                   </div>
-
-                  <div className="flex items-baseline gap-2 mb-2">
-                    <span className="text-white font-black tracking-tight" style={{ fontSize: "3.75rem", lineHeight: 1 }}>$390</span>
-                    <span className="text-white/50 text-xl font-semibold">USD</span>
+                  <div style={{ display: "flex", alignItems: "baseline", gap: "8px", marginBottom: "8px" }}>
+                    <span style={{ color: "#ffffff", fontSize: "64px", fontWeight: 900, lineHeight: 1, letterSpacing: "-0.02em" }}>$390</span>
+                    <span style={{ color: "rgba(255,255,255,0.45)", fontSize: "22px", fontWeight: 600 }}>USD</span>
                   </div>
-                  <p className="text-white/35 text-sm mt-2">Pago único &middot; Sin suscripción &middot; Sin vencimiento</p>
+                  <p style={{ color: "rgba(255,255,255,0.35)", fontSize: "13px", marginTop: "6px" }}>
+                    Pago único &middot; Sin suscripción &middot; Sin vencimiento
+                  </p>
                 </div>
 
-                {/* ── 3. FEATURES ── */}
-                <div
-                  className="px-8 py-7"
-                  style={{ borderTop: "1px solid rgba(255,255,255,0.07)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}
-                >
-                  <p className="text-white/40 text-[11px] font-semibold tracking-widest uppercase mb-5">Incluye</p>
-                  <ul className="space-y-4">
+                {/* 3 — FEATURES */}
+                <div style={{
+                  padding: "24px 36px",
+                  borderTop: "1px solid rgba(255,255,255,0.07)",
+                  borderBottom: "1px solid rgba(255,255,255,0.07)",
+                }}>
+                  <p style={{ color: "rgba(255,255,255,0.35)", fontSize: "11px", fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "20px" }}>
+                    Incluye
+                  </p>
+                  <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "14px" }}>
                     {[
                       "7 etapas con videos, frameworks y ejercicios prácticos",
                       "Herramientas de IA integradas (ChatGPT, Claude y Gemini)",
@@ -809,60 +824,90 @@ export default function App() {
                       "Garantía de 7 días sin preguntas",
                       "Acceso de por vida — sin cuotas ni renovaciones",
                     ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <span
-                          className="mt-0.5 flex-shrink-0 rounded-full flex items-center justify-center"
-                          style={{ width: 18, height: 18, background: "rgba(96,162,96,0.12)", border: "1px solid rgba(96,162,96,0.25)" }}
-                        >
-                          <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ color: "var(--nl-neon)" }}>
+                      <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
+                        <span style={{
+                          flexShrink: 0,
+                          marginTop: "2px",
+                          width: "18px",
+                          height: "18px",
+                          borderRadius: "50%",
+                          background: "rgba(96,200,96,0.1)",
+                          border: "1px solid rgba(96,200,96,0.25)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}>
+                          <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#60c860" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M5 13l4 4L19 7"/>
                           </svg>
                         </span>
-                        <span className="text-white/70 text-sm leading-relaxed">{item}</span>
+                        <span style={{ color: "rgba(255,255,255,0.72)", fontSize: "14px", lineHeight: 1.55 }}>{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                {/* ── 4. CTA BLOCK ── */}
-                <div className="px-8 py-8 flex flex-col gap-4">
+                {/* 4 — CTA */}
+                <div style={{ padding: "28px 36px", display: "flex", flexDirection: "column", gap: "16px" }}>
                   <a
                     href="https://tally.so/r/gDYXaM"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full block text-center rounded-xl py-4 px-6 font-bold text-sm tracking-widest uppercase transition-all hover:brightness-110 active:scale-[0.98]"
                     style={{
-                      background: "var(--nl-rojo)",
+                      display: "block",
+                      width: "100%",
+                      textAlign: "center",
+                      background: "#ff3a20",
                       color: "#fff",
-                      boxShadow: "0 4px 20px rgba(255,58,32,0.30)",
+                      borderRadius: "12px",
+                      padding: "16px 24px",
+                      fontWeight: 700,
+                      fontSize: "14px",
+                      letterSpacing: "0.08em",
+                      textTransform: "uppercase",
+                      textDecoration: "none",
+                      boxShadow: "0 4px 24px rgba(255,58,32,0.35)",
+                      transition: "opacity 0.15s",
                     }}
+                    onMouseEnter={e => (e.currentTarget.style.opacity = "0.88")}
+                    onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
                   >
                     Ingresar al programa
                   </a>
 
-                  <div className="flex flex-col items-center gap-1.5">
-                    <p className="text-white/30 text-xs">Acceso inmediato al inscribirte &middot; Garantía del 100%</p>
-                    <div className="flex items-center gap-2.5">
-                      <div className="flex items-center gap-1.5">
-                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: "var(--nl-neon)" }}>
-                          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        </svg>
-                        <span className="text-white/35 text-xs">Pago Seguro</span>
-                      </div>
-                      <span className="text-white/15">|</span>
-                      <span className="text-xs font-semibold" style={{ color: "var(--nl-neon)" }}>Garantía 7 días</span>
+                  <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "6px" }}>
+                    <p style={{ color: "rgba(255,255,255,0.28)", fontSize: "12px" }}>
+                      Acceso inmediato al inscribirte &middot; Garantía del 100%
+                    </p>
+                    <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#60c860" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                      </svg>
+                      <span style={{ color: "rgba(255,255,255,0.32)", fontSize: "12px" }}>Pago Seguro</span>
+                      <span style={{ color: "rgba(255,255,255,0.15)", fontSize: "14px" }}>|</span>
+                      <span style={{ color: "#60c860", fontSize: "12px", fontWeight: 600 }}>Garantía 7 días</span>
                     </div>
                   </div>
 
-                  <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }} className="pt-2 flex justify-center">
+                  <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "14px", display: "flex", justifyContent: "center" }}>
                     <a
                       href="https://wa.me/+5491163544698"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-sm font-medium transition-opacity hover:opacity-100 opacity-70 hover:opacity-100"
-                      style={{ color: "rgba(96,162,96,0.9)" }}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "7px",
+                        color: "rgba(96,200,96,0.75)",
+                        fontSize: "14px",
+                        fontWeight: 500,
+                        textDecoration: "none",
+                        transition: "opacity 0.15s",
+                      }}
+                      onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
+                      onMouseLeave={e => (e.currentTarget.style.opacity = "0.75")}
                     >
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="rgba(96,200,96,0.75)">
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                       </svg>
                       Consultar por WhatsApp
