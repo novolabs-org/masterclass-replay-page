@@ -2,7 +2,6 @@
 import React, { useMemo, useState, useEffect } from "react";
 import { ImageWithFallback } from './components/figma/ImageWithFallback';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './components/ui/tabs';
-import communityImage from "figma:asset/0ec5debbf555b71db07914d203718ce12290011f.png";
 import novolabsLogo from "figma:asset/52020c0a501af2e202886d2601d951fdf3071574.png";
 import testimonioSoledad from "figma:asset/6e5fb2aaa9d7772bcbbe4a6bf69e2de0414ad263.png";
 import testimonioIgnacio from "figma:asset/ddd8c550c75ead91d09eb5087516b669919b9e42.png";
@@ -744,28 +743,10 @@ export default function App() {
               Lanzá tu proyecto y conseguí los primeros clientes — a tu ritmo
             </h2>
 
-            {/* Community Image - Móvil arriba del subtítulo */}
-            <div className="mt-6 mb-6 w-full max-w-4xl px-2 sm:hidden">
-              <img
-                src={communityImage}
-                alt="Comunidad de emprendedores Novolabs"
-                className="w-full h-auto rounded-xl shadow-xl border border-white/10"
-              />
-            </div>
-
             {/* Subtítulo */}
-            <p className="text-white/70 max-w-2xl text-center text-base sm:text-lg md:text-xl leading-relaxed mt-3 mb-6 sm:mb-8 px-4 sm:px-0">
+            <p className="text-white/70 max-w-2xl text-center text-base sm:text-lg md:text-xl leading-relaxed mt-3 mb-8 px-4 sm:px-0">
               Aplicá el Sistema de Validación Paga™ paso a paso, con acceso de por vida al programa, las herramientas y la metodología.
             </p>
-
-            {/* Community Image - Desktop después del subtítulo */}
-            <div className="mb-8 sm:mb-12 w-full max-w-4xl px-2 hidden sm:block">
-              <img
-                src={communityImage}
-                alt="Comunidad de emprendedores Novolabs"
-                className="w-full h-auto rounded-xl sm:rounded-2xl shadow-xl border border-white/10"
-              />
-            </div>
 
             {/* ── PRICING CARD ── */}
             <div className="w-full max-w-[480px]">
