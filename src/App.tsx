@@ -769,95 +769,127 @@ export default function App() {
 
             {/* Card del programa */}
             <div className="w-full max-w-lg px-2 sm:px-0">
-              <div className="rounded-2xl sm:rounded-3xl bg-[#121212] border border-white/10 p-4 sm:p-6 md:p-8 shadow-2xl">
+              <div
+                className="rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden"
+                style={{ background: "#0f0f0f", border: "1px solid rgba(255,255,255,0.08)" }}
+              >
 
-                {/* Countdown timer */}
-                <div className="mb-6 flex items-center justify-center">
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#1e1e1e] border border-white/10">
-                    <span className="text-sm">⏳</span>
-                    <span className="text-white/60 text-xs sm:text-sm font-medium">Oferta termina en</span>
-                    <span className="font-mono font-bold text-sm sm:text-base tabular-nums" style={{ color: "var(--nl-rojo)" }}>
-                      {String(offerTimer.hours).padStart(2, "0")}:{String(offerTimer.minutes).padStart(2, "0")}:{String(offerTimer.seconds).padStart(2, "0")}
-                    </span>
-                  </div>
+                {/* — TOP URGENCY STRIP — */}
+                <div
+                  className="flex items-center justify-center gap-2 py-2.5 px-4"
+                  style={{ background: "rgba(255,58,32,0.10)", borderBottom: "1px solid rgba(255,58,32,0.18)" }}
+                >
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: "var(--nl-rojo)", flexShrink: 0 }}>
+                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                  <span className="text-white/60 text-xs font-medium tracking-wide uppercase">Oferta termina en</span>
+                  <span
+                    className="font-mono font-bold text-xs sm:text-sm tabular-nums"
+                    style={{ color: "var(--nl-rojo)" }}
+                  >
+                    {String(offerTimer.hours).padStart(2, "0")}:{String(offerTimer.minutes).padStart(2, "0")}:{String(offerTimer.seconds).padStart(2, "0")}
+                  </span>
                 </div>
 
-                {/* Inclusions list */}
-                <div className="mb-5 pb-4 border-b border-white/10">
-                  <h3 className="text-base sm:text-lg font-extrabold tracking-tight leading-tight text-white mb-4">
-                    Incluye:
-                  </h3>
-                  <ul className="space-y-2 sm:space-y-3 text-white/80">
+                {/* — PRICING HERO — */}
+                <div className="px-6 sm:px-8 pt-7 pb-6" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+                  {/* Discount badge + original price row */}
+                  <div className="flex items-center gap-3 mb-3">
+                    <span
+                      className="text-xs font-bold tracking-widest uppercase px-2.5 py-1 rounded-md"
+                      style={{ background: "rgba(255,58,32,0.15)", color: "var(--nl-rojo)", border: "1px solid rgba(255,58,32,0.25)" }}
+                    >
+                      50% OFF
+                    </span>
+                    <span className="text-white/30 line-through text-sm font-medium">$780 USD</span>
+                  </div>
+                  {/* Main price */}
+                  <div className="flex items-end gap-2 mb-1.5">
+                    <span className="text-white font-black text-4xl sm:text-5xl leading-none tracking-tight">$390</span>
+                    <span className="text-white/50 text-base font-semibold mb-1">USD</span>
+                  </div>
+                  <p className="text-white/35 text-xs tracking-wide">Pago único &nbsp;·&nbsp; Acceso de por vida</p>
+                </div>
+
+                {/* — INCLUSIONS — */}
+                <div className="px-6 sm:px-8 py-6" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+                  <p className="text-white/40 text-xs font-semibold tracking-widest uppercase mb-4">Incluye</p>
+                  <ul className="space-y-3">
                     {[
-                      "7 etapas con videos, frameworks y ejercicios prácticos",
-                      "Herramientas de IA integradas (prompts para ChatGPT, Claude y Gemini)",
-                      "+20 plantillas para aplicar en tu proyecto",
-                      "Comunidad de emprendedores (directorio + grupo)",
-                      "Campus Novolabs centralizado",
-                      "Actualizaciones futuras incluidas",
-                      "Garantía de 7 días sin preguntas",
-                      "Acceso de por vida — sin cuotas ni renovaciones",
-                    ].map((b, i) => (
-                      <li key={i} className="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm leading-relaxed">
-                        <svg className="mt-0.5 h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" style={{ color: "var(--nl-neon)" }}>
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                      { text: "7 etapas con videos, frameworks y ejercicios prácticos", highlight: false },
+                      { text: "Herramientas de IA integradas (ChatGPT, Claude y Gemini)", highlight: false },
+                      { text: "+20 plantillas para aplicar en tu proyecto", highlight: false },
+                      { text: "Comunidad de emprendedores — directorio + grupo", highlight: false },
+                      { text: "Campus Novolabs centralizado", highlight: false },
+                      { text: "Actualizaciones futuras incluidas", highlight: false },
+                      { text: "Garantía de 7 días sin preguntas", highlight: true },
+                      { text: "Acceso de por vida — sin cuotas ni renovaciones", highlight: true },
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <svg
+                          className="mt-0.5 flex-shrink-0"
+                          width="14" height="14"
+                          viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"
+                          strokeLinecap="round" strokeLinejoin="round"
+                          style={{ color: "var(--nl-neon)" }}
+                        >
+                          <path d="M5 13l4 4L19 7" />
                         </svg>
-                        <span>{b}</span>
+                        <span
+                          className="text-sm leading-snug"
+                          style={{ color: item.highlight ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.65)" }}
+                        >
+                          {item.text}
+                        </span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                {/* Pricing */}
-                <div className="mb-6">
-                  {/* 50% OFF label */}
-                  <div className="mb-3">
-                    <span className="text-3xl sm:text-4xl font-black tracking-tight" style={{ color: "var(--nl-rojo)" }}>
-                      50% OFF
-                    </span>
-                  </div>
-                  {/* Strikethrough original price */}
-                  <div className="text-white/40 line-through text-lg sm:text-xl font-semibold mb-1">
-                    $780
-                  </div>
-                  {/* Final price */}
-                  <div className="text-white font-extrabold text-3xl sm:text-4xl leading-none mb-2">
-                    $390 <span className="text-xl sm:text-2xl font-bold text-white/80">USD</span>
-                  </div>
-                  <p className="text-white/50 text-xs sm:text-sm">Pago único · Acceso de por vida</p>
-                </div>
-
-                {/* CTAs */}
-                <div className="flex flex-col gap-2 sm:gap-3">
+                {/* — CTAs — */}
+                <div className="px-6 sm:px-8 py-6 flex flex-col gap-3">
                   <a
                     href="https://tally.so/r/gDYXaM"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full text-center rounded-lg sm:rounded-xl px-4 sm:px-6 py-3 sm:py-4 font-semibold shadow-lg transition-all hover:shadow-xl transform hover:scale-[1.02] relative overflow-hidden text-sm sm:text-base"
+                    className="w-full text-center rounded-xl px-6 py-4 font-bold text-sm sm:text-base tracking-wide relative overflow-hidden transition-all hover:scale-[1.02] active:scale-[0.99] shadow-lg"
                     style={{
                       backgroundColor: "var(--nl-rojo)",
-                      color: "var(--nl-white)",
-                      animation: "gentleSway 4s ease-in-out infinite"
+                      color: "#fff",
+                      boxShadow: "0 4px 24px rgba(255,58,32,0.40)",
                     }}
                   >
                     <span className="relative z-10">Ingresar al programa</span>
                     <div
-                      className="absolute inset-0 opacity-30"
+                      className="absolute inset-0 opacity-20"
                       style={{
-                        background: "linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%)",
-                        animation: "shimmer 3s ease-in-out infinite"
+                        background: "linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.5) 50%, transparent 60%)",
+                        animation: "shimmer 3s ease-in-out infinite",
                       }}
-                    ></div>
+                    />
                   </a>
                   <a
                     href="https://wa.me/+5491163544698"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full text-center px-4 sm:px-6 py-3 sm:py-4 font-semibold hover:text-white transition-colors text-sm sm:text-base"
+                    className="w-full text-center rounded-xl px-6 py-3.5 font-medium text-sm transition-colors"
+                    style={{
+                      color: "rgba(96,162,96,0.85)",
+                      border: "1px solid rgba(96,162,96,0.20)",
+                    }}
+                    onMouseEnter={e => {
+                      (e.currentTarget as HTMLAnchorElement).style.background = "rgba(96,162,96,0.06)";
+                      (e.currentTarget as HTMLAnchorElement).style.color = "rgba(96,162,96,1)";
+                    }}
+                    onMouseLeave={e => {
+                      (e.currentTarget as HTMLAnchorElement).style.background = "transparent";
+                      (e.currentTarget as HTMLAnchorElement).style.color = "rgba(96,162,96,0.85)";
+                    }}
                   >
-                    <span className="break-words text-[rgba(96,162,96,0.9)]">Consultar por WhatsApp</span>
+                    Consultar por WhatsApp
                   </a>
                 </div>
+
               </div>
             </div>
           </div>
