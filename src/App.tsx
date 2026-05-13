@@ -767,130 +767,162 @@ export default function App() {
               />
             </div>
 
-            {/* Card del programa */}
-            <div className="w-full max-w-lg px-2 sm:px-0">
+            {/* ── PRICING CARD (compact, centered, price-hero style) ── */}
+            <div className="w-full max-w-md px-2 sm:px-0">
               <div
-                className="rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden"
-                style={{ background: "#0f0f0f", border: "1px solid rgba(255,255,255,0.08)" }}
+                className="rounded-2xl overflow-hidden text-center"
+                style={{
+                  background: "linear-gradient(160deg, #1c1412 0%, #130d0d 60%, #0f0f0f 100%)",
+                  border: "1px solid rgba(255,58,32,0.22)",
+                  boxShadow: "0 0 60px rgba(255,58,32,0.08), 0 2px 40px rgba(0,0,0,0.6)",
+                }}
               >
-
-                {/* — TOP URGENCY STRIP — */}
+                {/* Countdown strip */}
                 <div
                   className="flex items-center justify-center gap-2 py-2.5 px-4"
-                  style={{ background: "rgba(255,58,32,0.10)", borderBottom: "1px solid rgba(255,58,32,0.18)" }}
+                  style={{ background: "rgba(255,58,32,0.08)", borderBottom: "1px solid rgba(255,58,32,0.15)" }}
                 >
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: "var(--nl-rojo)", flexShrink: 0 }}>
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: "var(--nl-rojo)", flexShrink: 0 }}>
                     <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
                   </svg>
-                  <span className="text-white/60 text-xs font-medium tracking-wide uppercase">Oferta termina en</span>
-                  <span
-                    className="font-mono font-bold text-xs sm:text-sm tabular-nums"
-                    style={{ color: "var(--nl-rojo)" }}
-                  >
+                  <span className="text-white/50 text-xs font-medium tracking-widest uppercase">Oferta termina en</span>
+                  <span className="font-mono font-bold text-xs tabular-nums" style={{ color: "var(--nl-rojo)" }}>
                     {String(offerTimer.hours).padStart(2, "0")}:{String(offerTimer.minutes).padStart(2, "0")}:{String(offerTimer.seconds).padStart(2, "0")}
                   </span>
                 </div>
 
-                {/* — PRICING HERO — */}
-                <div className="px-6 sm:px-8 pt-7 pb-6" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
-                  {/* Discount badge + original price row */}
-                  <div className="flex items-center gap-3 mb-3">
-                    <span
-                      className="text-xs font-bold tracking-widest uppercase px-2.5 py-1 rounded-md"
-                      style={{ background: "rgba(255,58,32,0.15)", color: "var(--nl-rojo)", border: "1px solid rgba(255,58,32,0.25)" }}
-                    >
-                      50% OFF
-                    </span>
-                    <span className="text-white/30 line-through text-sm font-medium">$780 USD</span>
-                  </div>
+                {/* Price block */}
+                <div className="px-8 pt-8 pb-7">
+                  {/* Original price strikethrough */}
+                  <p className="text-white/35 line-through text-base font-medium tracking-wide mb-1">
+                    $780 USD
+                  </p>
                   {/* Main price */}
-                  <div className="flex items-end gap-2 mb-1.5">
-                    <span className="text-white font-black text-4xl sm:text-5xl leading-none tracking-tight">$390</span>
-                    <span className="text-white/50 text-base font-semibold mb-1">USD</span>
+                  <div className="flex items-start justify-center gap-2 mb-2">
+                    <span
+                      className="font-black leading-none tracking-tighter"
+                      style={{ fontSize: "clamp(3.5rem, 10vw, 5rem)", color: "var(--nl-rojo)" }}
+                    >
+                      $390
+                    </span>
+                    <span className="text-white/60 text-lg font-semibold mt-3">USD</span>
                   </div>
-                  <p className="text-white/35 text-xs tracking-wide">Pago único &nbsp;·&nbsp; Acceso de por vida</p>
-                </div>
+                  {/* Subline */}
+                  <p className="text-white/40 text-sm mb-7">
+                    Pago único. Sin suscripción. Sin vencimiento.
+                  </p>
 
-                {/* — INCLUSIONS — */}
-                <div className="px-6 sm:px-8 py-6" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
-                  <p className="text-white/40 text-xs font-semibold tracking-widest uppercase mb-4">Incluye</p>
-                  <ul className="space-y-3">
-                    {[
-                      { text: "7 etapas con videos, frameworks y ejercicios prácticos", highlight: false },
-                      { text: "Herramientas de IA integradas (ChatGPT, Claude y Gemini)", highlight: false },
-                      { text: "+20 plantillas para aplicar en tu proyecto", highlight: false },
-                      { text: "Comunidad de emprendedores — directorio + grupo", highlight: false },
-                      { text: "Campus Novolabs centralizado", highlight: false },
-                      { text: "Actualizaciones futuras incluidas", highlight: false },
-                      { text: "Garantía de 7 días sin preguntas", highlight: true },
-                      { text: "Acceso de por vida — sin cuotas ni renovaciones", highlight: true },
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <svg
-                          className="mt-0.5 flex-shrink-0"
-                          width="14" height="14"
-                          viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"
-                          strokeLinecap="round" strokeLinejoin="round"
-                          style={{ color: "var(--nl-neon)" }}
-                        >
-                          <path d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span
-                          className="text-sm leading-snug"
-                          style={{ color: item.highlight ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.65)" }}
-                        >
-                          {item.text}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* — CTAs — */}
-                <div className="px-6 sm:px-8 py-6 flex flex-col gap-3">
+                  {/* CTA button */}
                   <a
                     href="https://tally.so/r/gDYXaM"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full text-center rounded-xl px-6 py-4 font-bold text-sm sm:text-base tracking-wide relative overflow-hidden transition-all hover:scale-[1.02] active:scale-[0.99] shadow-lg"
+                    className="block w-full text-center rounded-xl px-6 py-4 font-black text-sm tracking-widest uppercase relative overflow-hidden transition-all hover:scale-[1.02] active:scale-[0.99]"
                     style={{
                       backgroundColor: "var(--nl-rojo)",
                       color: "#fff",
-                      boxShadow: "0 4px 24px rgba(255,58,32,0.40)",
+                      boxShadow: "0 4px 28px rgba(255,58,32,0.45)",
                     }}
                   >
                     <span className="relative z-10">Ingresar al programa</span>
                     <div
                       className="absolute inset-0 opacity-20"
                       style={{
-                        background: "linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.5) 50%, transparent 60%)",
+                        background: "linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.6) 50%, transparent 60%)",
                         animation: "shimmer 3s ease-in-out infinite",
                       }}
                     />
                   </a>
-                  <a
-                    href="https://wa.me/+5491163544698"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full text-center rounded-xl px-6 py-3.5 font-medium text-sm transition-colors"
-                    style={{
-                      color: "rgba(96,162,96,0.85)",
-                      border: "1px solid rgba(96,162,96,0.20)",
-                    }}
-                    onMouseEnter={e => {
-                      (e.currentTarget as HTMLAnchorElement).style.background = "rgba(96,162,96,0.06)";
-                      (e.currentTarget as HTMLAnchorElement).style.color = "rgba(96,162,96,1)";
-                    }}
-                    onMouseLeave={e => {
-                      (e.currentTarget as HTMLAnchorElement).style.background = "transparent";
-                      (e.currentTarget as HTMLAnchorElement).style.color = "rgba(96,162,96,0.85)";
-                    }}
-                  >
-                    Consultar por WhatsApp
-                  </a>
-                </div>
 
+                  {/* Trust row */}
+                  <p className="text-white/35 text-xs mt-3 mb-1">Acceso inmediato al inscribirte</p>
+                  <div className="flex items-center justify-center gap-2 mt-1">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: "var(--nl-neon)", flexShrink: 0 }}>
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                    <span className="text-white/40 text-xs font-medium">Pago Seguro</span>
+                    <span className="text-white/20 text-xs">|</span>
+                    <span className="text-xs font-bold tracking-widest" style={{ color: "var(--nl-neon)" }}>Garantía 7 días</span>
+                  </div>
+                </div>
               </div>
+            </div>
+
+            {/* ── INCLUSIONS (outside card, below) ── */}
+            <div className="w-full max-w-md px-2 sm:px-0 mt-10">
+              <p className="text-white/40 text-xs font-semibold tracking-widest uppercase mb-5">Contenido del Programa</p>
+              <ul className="space-y-3.5">
+                {[
+                  "7 etapas con videos, frameworks y ejercicios prácticos",
+                  "Herramientas de IA integradas (ChatGPT, Claude y Gemini)",
+                  "+20 plantillas para aplicar en tu proyecto",
+                  "Comunidad de emprendedores — directorio + grupo",
+                  "Campus Novolabs centralizado",
+                  "Actualizaciones futuras incluidas",
+                  "Garantía de 7 días sin preguntas",
+                  "Acceso de por vida — sin cuotas ni renovaciones",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <svg
+                      className="mt-0.5 flex-shrink-0"
+                      width="15" height="15"
+                      viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"
+                      strokeLinecap="round" strokeLinejoin="round"
+                      style={{ color: "var(--nl-neon)" }}
+                    >
+                      <path d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-white/70 text-sm leading-snug">{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Separator */}
+              <div className="my-8" style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }} />
+
+              {/* Bottom CTA repeat */}
+              <a
+                href="https://tally.so/r/gDYXaM"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full text-center rounded-xl px-6 py-4 font-black text-sm tracking-widest uppercase relative overflow-hidden transition-all hover:scale-[1.02] active:scale-[0.99] mb-4"
+                style={{
+                  backgroundColor: "var(--nl-rojo)",
+                  color: "#fff",
+                  boxShadow: "0 4px 28px rgba(255,58,32,0.35)",
+                }}
+              >
+                <span className="relative z-10">Ingresar al programa</span>
+                <div
+                  className="absolute inset-0 opacity-20"
+                  style={{
+                    background: "linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.6) 50%, transparent 60%)",
+                    animation: "shimmer 3s ease-in-out infinite",
+                  }}
+                />
+              </a>
+
+              {/* Bottom trust row */}
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: "var(--nl-neon)", flexShrink: 0 }}>
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                <span className="text-white/40 text-xs font-medium">Pago Seguro</span>
+                <span className="text-white/20 text-xs">|</span>
+                <span className="text-xs font-bold tracking-widest" style={{ color: "var(--nl-neon)" }}>Garantía 7 días</span>
+              </div>
+              <p className="text-white/30 text-xs text-center">Acceso inmediato al inscribirte. Garantía del 100%.</p>
+
+              {/* WhatsApp link */}
+              <a
+                href="https://wa.me/+5491163544698"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full text-center mt-3 py-2 text-sm font-medium transition-opacity hover:opacity-100"
+                style={{ color: "rgba(96,162,96,0.80)" }}
+              >
+                Consultar por WhatsApp
+              </a>
             </div>
           </div>
         </div>
