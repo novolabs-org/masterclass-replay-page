@@ -279,7 +279,7 @@ export default function App() {
               </div>
             ) : (
               <iframe
-                src="https://streamable.com/e/6lbyra"
+                src="https://streamable.com/e/kzvdzt"
                 title="Masterclass Replay"
                 frameBorder="0"
                 allowFullScreen
