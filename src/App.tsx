@@ -2,7 +2,6 @@
 import React, { useMemo, useState, useEffect } from "react";
 import { ImageWithFallback } from './components/figma/ImageWithFallback';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './components/ui/tabs';
-import communityImage from "figma:asset/0ec5debbf555b71db07914d203718ce12290011f.png";
 import novolabsLogo from "figma:asset/52020c0a501af2e202886d2601d951fdf3071574.png";
 import testimonioSoledad from "figma:asset/6e5fb2aaa9d7772bcbbe4a6bf69e2de0414ad263.png";
 import testimonioIgnacio from "figma:asset/ddd8c550c75ead91d09eb5087516b669919b9e42.png";
@@ -90,6 +89,28 @@ export default function App() {
     }, 1000);
 
     return () => clearInterval(timer);
+  }, []);
+
+  // ====== OFFER COUNTDOWN TIMER (24:44:59 loop) ======
+  const OFFER_TOTAL_SECONDS = 24 * 3600 + 44 * 60 + 59; // 89,099 seconds
+  const [offerTimer, setOfferTimer] = useState({
+    hours: 24,
+    minutes: 44,
+    seconds: 59,
+  });
+
+  useEffect(() => {
+    let remaining = OFFER_TOTAL_SECONDS;
+    const tick = setInterval(() => {
+      remaining -= 1;
+      if (remaining < 0) remaining = OFFER_TOTAL_SECONDS;
+      setOfferTimer({
+        hours: Math.floor(remaining / 3600),
+        minutes: Math.floor((remaining % 3600) / 60),
+        seconds: remaining % 60,
+      });
+    }, 1000);
+    return () => clearInterval(tick);
   }, []);
 
   // ====== CONFIG (customize for your needs) ======
@@ -421,7 +442,7 @@ export default function App() {
         <div className="text-center py-8 sm:py-12">
           {/* Main heading */}
           <h2 className="text-white font-extrabold mb-4 sm:mb-6 text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight px-2">
-            300+ Emprendedores de 18 países ya lanzaron con el Método Novo™
+            350+ personas en 18 países ya lanzaron su proyecto al mercado<br />con el Método Novo™
           </h2>
           
           {/* Trustpilot rating */}
@@ -719,103 +740,185 @@ export default function App() {
           <div id="program" className="w-full flex flex-col items-center px-2 sm:px-0">
             {/* Headline del programa */}
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight text-center">
-              Lanza tu proyecto y conseguí los primeros clientes en 4 meses
+              Lanzá tu proyecto y conseguí los primeros clientes — a tu ritmo
             </h2>
-            
-            {/* Community Image - Móvil arriba del subtítulo */}
-            <div className="mt-6 mb-6 w-full max-w-4xl px-2 sm:hidden">
-              <img 
-                src={communityImage}
-                alt="Comunidad de emprendedores Novolabs"
-                className="w-full h-auto rounded-xl shadow-xl border border-white/10"
-              />
-            </div>
-            
-            {/* Subtítulo - Móvil debajo de imagen, desktop debajo de título */}
-            <p className="text-white/70 max-w-2xl text-center text-base sm:text-lg md:text-xl leading-relaxed mt-3 mb-6 sm:mb-8 px-4 sm:px-0">
-              Aplica el Sistema de Validción Paga™ de la mano de Emprendedores que ya transformaron sus ideas en empresas exitosas.
+
+            {/* Subtítulo */}
+            <p className="text-white/70 max-w-2xl text-center text-base sm:text-lg md:text-xl leading-relaxed mt-3 mb-8 px-4 sm:px-0">
+              Aplicá el Sistema de Validación Paga™ paso a paso, con acceso de por vida al programa, las herramientas y la comunidad.
             </p>
-            
-            {/* Community Image - Desktop después del subtítulo */}
-            <div className="mb-8 sm:mb-12 w-full max-w-4xl px-2 hidden sm:block">
-              <img 
-                src={communityImage}
-                alt="Comunidad de emprendedores Novolabs"
-                className="w-full h-auto rounded-xl sm:rounded-2xl shadow-xl border border-white/10"
-              />
-            </div>
-            
-            {/* Card del programa con Tabs */}
-            <div className="w-full max-w-lg px-2 sm:px-0">
-              <div className="rounded-2xl sm:rounded-3xl bg-[#121212] border border-white/10 p-4 sm:p-6 md:p-8 shadow-2xl">
-                {/* Exclusive discount banner */}
-                <div className="mb-6 sm:mb-8 pb-3 sm:pb-4 border-b border-white/10">
-                  <div className="text-center mb-2">
-                    <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight leading-tight" style={{ color: "var(--nl-neon)" }}>
-                      El Programa de 4 meses incluye:
-                    </h3>
+
+            {/* ── PRICING CARD ── */}
+            <div style={{ width: "100%", maxWidth: "460px" }}>
+              <div style={{
+                background: "#181818",
+                border: "1px solid rgba(255,255,255,0.11)",
+                borderRadius: "20px",
+                overflow: "hidden",
+                boxShadow: "0 8px 48px rgba(0,0,0,0.6)",
+              }}>
+
+                {/* 1 — COUNTDOWN */}
+                <div style={{
+                  background: "#111",
+                  borderBottom: "1px solid rgba(255,255,255,0.08)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "8px",
+                  padding: "12px 24px",
+                }}>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ff3a20" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                  <span style={{ color: "rgba(255,255,255,0.5)", fontSize: "12px", fontWeight: 500, letterSpacing: "0.04em" }}>
+                    Oferta termina en
+                  </span>
+                  <span style={{ color: "#ff3a20", fontSize: "14px", fontWeight: 700, fontFamily: "monospace", fontVariantNumeric: "tabular-nums" }}>
+                    {String(offerTimer.hours).padStart(2, "0")}:{String(offerTimer.minutes).padStart(2, "0")}:{String(offerTimer.seconds).padStart(2, "0")}
+                  </span>
+                </div>
+
+                {/* 2 — PRICE */}
+                <div style={{ padding: "36px 36px 28px" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
+                    <span style={{
+                      background: "rgba(255,58,32,0.13)",
+                      color: "#ff3a20",
+                      border: "1px solid rgba(255,58,32,0.25)",
+                      borderRadius: "100px",
+                      fontSize: "11px",
+                      fontWeight: 700,
+                      letterSpacing: "0.1em",
+                      textTransform: "uppercase",
+                      padding: "4px 12px",
+                    }}>50% OFF</span>
+                    <span style={{ color: "rgba(255,255,255,0.3)", textDecoration: "line-through", fontSize: "14px" }}>$780 USD</span>
+                  </div>
+                  <div style={{ display: "flex", alignItems: "baseline", gap: "8px", marginBottom: "8px" }}>
+                    <span style={{ color: "#ffffff", fontSize: "64px", fontWeight: 900, lineHeight: 1, letterSpacing: "-0.02em" }}>$390</span>
+                    <span style={{ color: "rgba(255,255,255,0.45)", fontSize: "22px", fontWeight: 600 }}>USD</span>
+                  </div>
+                  <p style={{ color: "rgba(255,255,255,0.35)", fontSize: "13px", marginTop: "6px" }}>
+                    Pago único &middot; Sin suscripción &middot; Sin vencimiento
+                  </p>
+                </div>
+
+                {/* 3 — FEATURES */}
+                <div style={{
+                  padding: "24px 36px",
+                  borderTop: "1px solid rgba(255,255,255,0.07)",
+                  borderBottom: "1px solid rgba(255,255,255,0.07)",
+                }}>
+                  <p style={{ color: "rgba(255,255,255,0.35)", fontSize: "11px", fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "20px" }}>
+                    Incluye
+                  </p>
+                  <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "14px" }}>
+                    {[
+                      "7 pasos del Sistema de Validación Paga",
+                      "+20 Asistentes de IA Especializados",
+                      "+10 Masterclass con emprendedores TOP",
+                      "Comunidad de emprendedores",
+                      "+30 mentores expertos disponibles",
+                      "Actualizaciones futuras incluidas",
+                      "Garantía de 7 días sin preguntas",
+                      "Acceso de por vida — sin cuotas ni renovaciones",
+                    ].map((item, i) => (
+                      <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
+                        {i >= 5 ? (
+                          <span style={{ flexShrink: 0, marginTop: "0px", fontSize: "18px" }}>🎁</span>
+                        ) : (
+                          <span style={{
+                            flexShrink: 0,
+                            marginTop: "2px",
+                            width: "18px",
+                            height: "18px",
+                            borderRadius: "50%",
+                            background: "rgba(96,200,96,0.1)",
+                            border: "1px solid rgba(96,200,96,0.25)",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}>
+                            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#60c860" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                              <path d="M5 13l4 4L19 7"/>
+                            </svg>
+                          </span>
+                        )}
+                        <span style={{ color: "rgba(255,255,255,0.72)", fontSize: "14px", lineHeight: 1.55 }}>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* 4 — CTA */}
+                <div style={{ padding: "28px 36px", display: "flex", flexDirection: "column", gap: "16px" }}>
+                  <a
+                    href="https://tally.so/r/gDYXaM"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: "block",
+                      width: "100%",
+                      textAlign: "center",
+                      background: "#ff3a20",
+                      color: "#fff",
+                      borderRadius: "12px",
+                      padding: "16px 24px",
+                      fontWeight: 700,
+                      fontSize: "14px",
+                      letterSpacing: "0.08em",
+                      textTransform: "uppercase",
+                      textDecoration: "none",
+                      boxShadow: "0 4px 24px rgba(255,58,32,0.35)",
+                      transition: "opacity 0.15s",
+                    }}
+                    onMouseEnter={e => (e.currentTarget.style.opacity = "0.88")}
+                    onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
+                  >
+                    Ingresar al programa
+                  </a>
+
+                  <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "6px" }}>
+                    <p style={{ color: "rgba(255,255,255,0.28)", fontSize: "12px" }}>
+                      Acceso inmediato al inscribirte &middot; Garantía del 100%
+                    </p>
+                    <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#60c860" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                      </svg>
+                      <span style={{ color: "rgba(255,255,255,0.32)", fontSize: "12px" }}>Pago Seguro</span>
+                      <span style={{ color: "rgba(255,255,255,0.15)", fontSize: "14px" }}>|</span>
+                      <span style={{ color: "#60c860", fontSize: "12px", fontWeight: 600 }}>Garantía 7 días</span>
+                    </div>
+                  </div>
+
+                  <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "14px", display: "flex", justifyContent: "center" }}>
+                    <a
+                      href="https://wa.me/+5491163544698"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "7px",
+                        color: "rgba(96,200,96,0.75)",
+                        fontSize: "14px",
+                        fontWeight: 500,
+                        textDecoration: "none",
+                        transition: "opacity 0.15s",
+                      }}
+                      onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
+                      onMouseLeave={e => (e.currentTarget.style.opacity = "0.75")}
+                    >
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="rgba(96,200,96,0.75)">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                      </svg>
+                      Consultar por WhatsApp
+                    </a>
                   </div>
                 </div>
 
-                <ul className="space-y-2 sm:space-y-3 text-white/80 mb-6 sm:mb-8">
-                  {[
-                    "Acceso por tiempo ilimitado al contenido del programa.",
-                    "Acceso a 16 sesiones grupales en vivo para compartir avances, recibir y dar feedback.",
-                    "Acceso a 6 sesiones 1:1 con mentores de Novolabs para avanzar más rápido y evitar errores comunes.",
-                    "Acceso a 6 masterclass con emprendedores top.",
-                    "Acceso a +120 lecciones en video de 5-10 minutos para que aprendas a tu ritmo.",
-                    "Acceso a +20 plantillas para que apliques el conocimiento en tu proyecto.",
-                    "Acceso al 'Novo Day' con inversores destacados para que puedas pitchear tu idea.",
-                    "Acceso al Club de Fundadores de Novolabs por 1 año.",
-                    "Certificación de 'Emprendedor Novo' al finalizar el programa con éxito.",
-                  ].map((b, i) => (
-                    <li key={i} className="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm leading-relaxed">
-                      <svg className="mt-0.5 h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" style={{ color: "var(--nl-neon)" }}>
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="flex flex-col gap-2 sm:gap-3">
-                  <a
-                    href="https://info.novolabs.xyz/widget/form/6ZZqIXf57PufpGPjoMaa"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full text-center rounded-lg sm:rounded-xl px-4 sm:px-6 py-3 sm:py-4 font-semibold shadow-lg transition-all hover:shadow-xl transform hover:scale-[1.02] relative overflow-hidden text-sm sm:text-base"
-                    style={{ 
-                      backgroundColor: "var(--nl-rojo)", 
-                      color: "var(--nl-white)",
-                      animation: "gentleSway 4s ease-in-out infinite"
-                    }}
-                  >
-                    <span className="relative z-10">Quiero emprender con Novolabs</span>
-                    <div 
-                      className="absolute inset-0 opacity-30"
-                      style={{
-                        background: "linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%)",
-                        animation: "shimmer 3s ease-in-out infinite"
-                      }}
-                    ></div>
-                  </a>
-                  <a
-                    href={CONFIG.bookCallCta}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full text-center rounded-lg sm:rounded-xl px-4 sm:px-6 py-3 sm:py-4 font-semibold border border-white/10 text-white/90 hover:bg-white/5 transition-all text-sm sm:text-base"
-                  >
-                    Ver detalles
-                  </a>
-                  <a
-                    href={CONFIG.whatsappCta}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full text-center px-4 sm:px-6 py-3 sm:py-4 font-semibold text-white/90 hover:text-white transition-colors text-sm sm:text-base"
-                  >
-                    <span className="break-words text-[rgba(96,162,96,0.9)]">Consultar por WhatsApp</span>
-                  </a>
-                </div>
               </div>
             </div>
           </div>
