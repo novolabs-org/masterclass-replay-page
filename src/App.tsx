@@ -748,10 +748,8 @@ export default function App() {
               Aplicá el Sistema de Validación Paga™ paso a paso, con acceso de por vida al programa, las herramientas y la metodología.
             </p>
 
-            {/* ── PRICING CARD ── */}
+            {/* ── PRICING CARD (todo unificado) ── */}
             <div className="w-full max-w-[480px]">
-
-              {/* Card */}
               <div className="rounded-2xl overflow-hidden" style={{ background: "#1c1c1c", border: "1px solid rgba(255,255,255,0.10)" }}>
 
                 {/* Countdown strip */}
@@ -765,13 +763,10 @@ export default function App() {
                   </span>
                 </div>
 
-                {/* Price block */}
-                <div className="px-10 pt-10 pb-10 flex flex-col items-center text-center">
+                <div className="px-8 pt-8 pb-8 flex flex-col items-center text-center">
 
                   {/* Original price */}
-                  <p className="text-white/35 line-through text-base font-normal mb-3 tracking-wide">
-                    $780 USD
-                  </p>
+                  <p className="text-white/35 line-through text-base font-normal mb-3 tracking-wide">$780 USD</p>
 
                   {/* Main price */}
                   <div className="flex items-baseline justify-center gap-3 mb-3">
@@ -780,11 +775,9 @@ export default function App() {
                   </div>
 
                   {/* Subline */}
-                  <p className="text-white/40 text-sm leading-relaxed mb-8">
-                    Pago único. Sin suscripción. Sin vencimiento.
-                  </p>
+                  <p className="text-white/40 text-sm leading-relaxed mb-8">Pago único. Sin suscripción. Sin vencimiento.</p>
 
-                  {/* CTA */}
+                  {/* CTA principal */}
                   <a
                     href="https://tally.so/r/gDYXaM"
                     target="_blank"
@@ -808,32 +801,39 @@ export default function App() {
                     <span className="text-xs font-semibold" style={{ color: "var(--nl-neon)" }}>Garantía 7 días</span>
                   </div>
                 </div>
-              </div>
 
-              {/* ── INCLUSIONS LIST ── */}
-              <div className="mt-10">
-                <p className="text-white font-bold text-base mb-5">Contenido del Programa:</p>
-                <ul className="space-y-4">
-                  {[
-                    "7 etapas con videos, frameworks y ejercicios prácticos",
-                    "Herramientas de IA integradas (ChatGPT, Claude y Gemini)",
-                    "+20 plantillas para aplicar en tu proyecto",
-                    "Comunidad de emprendedores — directorio + grupo",
-                    "Campus Novolabs centralizado",
-                    "Actualizaciones futuras incluidas",
-                    "Garantía de 7 días sin preguntas",
-                    "Acceso de por vida — sin cuotas ni renovaciones",
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <svg className="mt-0.5 flex-shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: "var(--nl-neon)" }}>
-                        <path d="M5 13l4 4L19 7"/>
-                      </svg>
-                      <span className="text-white/75 text-sm leading-relaxed">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                {/* Divider */}
+                <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }} />
 
-                <div className="mt-8 border-t border-white/10 pt-8">
+                {/* Inclusions list */}
+                <div className="px-8 py-8">
+                  <p className="text-white font-bold text-sm mb-5">Contenido del Programa:</p>
+                  <ul className="space-y-3.5">
+                    {[
+                      "7 etapas con videos, frameworks y ejercicios prácticos",
+                      "Herramientas de IA integradas (ChatGPT, Claude y Gemini)",
+                      "+20 plantillas para aplicar en tu proyecto",
+                      "Comunidad de emprendedores — directorio + grupo",
+                      "Campus Novolabs centralizado",
+                      "Actualizaciones futuras incluidas",
+                      "Garantía de 7 días sin preguntas",
+                      "Acceso de por vida — sin cuotas ni renovaciones",
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <svg className="mt-0.5 flex-shrink-0" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: "var(--nl-neon)" }}>
+                          <path d="M5 13l4 4L19 7"/>
+                        </svg>
+                        <span className="text-white/70 text-sm leading-relaxed text-left">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Divider */}
+                <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }} />
+
+                {/* Bottom CTA + trust + WhatsApp */}
+                <div className="px-8 py-8 flex flex-col items-center text-center">
                   <a
                     href="https://tally.so/r/gDYXaM"
                     target="_blank"
@@ -844,7 +844,7 @@ export default function App() {
                     Ingresar al programa
                   </a>
 
-                  <div className="flex items-center justify-center gap-3 mb-2">
+                  <div className="flex items-center justify-center gap-3 mb-1.5">
                     <div className="flex items-center gap-1.5">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: "var(--nl-neon)" }}>
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
@@ -854,20 +854,20 @@ export default function App() {
                     <span className="text-white/15 text-sm">|</span>
                     <span className="text-xs font-semibold" style={{ color: "var(--nl-neon)" }}>Garantía 7 días</span>
                   </div>
-                  <p className="text-white/25 text-xs text-center mb-4">Acceso inmediato al inscribirte. Garantía del 100%.</p>
+                  <p className="text-white/25 text-xs mb-5">Acceso inmediato al inscribirte. Garantía del 100%.</p>
 
                   <a
                     href="https://wa.me/+5491163544698"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block w-full text-center py-2 text-sm font-medium transition-opacity hover:opacity-100"
+                    className="text-sm font-medium transition-opacity hover:opacity-100"
                     style={{ color: "rgba(96,162,96,0.80)" }}
                   >
                     Consultar por WhatsApp
                   </a>
                 </div>
-              </div>
 
+              </div>
             </div>
           </div>
         </div>
