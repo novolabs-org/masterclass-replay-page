@@ -92,6 +92,28 @@ export default function App() {
     return () => clearInterval(timer);
   }, []);
 
+  // ====== OFFER COUNTDOWN TIMER (24:44:59 loop) ======
+  const OFFER_TOTAL_SECONDS = 24 * 3600 + 44 * 60 + 59; // 89,099 seconds
+  const [offerTimer, setOfferTimer] = useState({
+    hours: 24,
+    minutes: 44,
+    seconds: 59,
+  });
+
+  useEffect(() => {
+    let remaining = OFFER_TOTAL_SECONDS;
+    const tick = setInterval(() => {
+      remaining -= 1;
+      if (remaining < 0) remaining = OFFER_TOTAL_SECONDS;
+      setOfferTimer({
+        hours: Math.floor(remaining / 3600),
+        minutes: Math.floor((remaining % 3600) / 60),
+        seconds: remaining % 60,
+      });
+    }, 1000);
+    return () => clearInterval(tick);
+  }, []);
+
   // ====== CONFIG (customize for your needs) ======
   const CONFIG = useMemo(
     () => ({
@@ -719,79 +741,107 @@ export default function App() {
           <div id="program" className="w-full flex flex-col items-center px-2 sm:px-0">
             {/* Headline del programa */}
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight text-center">
-              Lanza tu proyecto y conseguí los primeros clientes en 4 meses
+              Lanzá tu proyecto y conseguí los primeros clientes — a tu ritmo
             </h2>
-            
+
             {/* Community Image - Móvil arriba del subtítulo */}
             <div className="mt-6 mb-6 w-full max-w-4xl px-2 sm:hidden">
-              <img 
+              <img
                 src={communityImage}
                 alt="Comunidad de emprendedores Novolabs"
                 className="w-full h-auto rounded-xl shadow-xl border border-white/10"
               />
             </div>
-            
-            {/* Subtítulo - Móvil debajo de imagen, desktop debajo de título */}
+
+            {/* Subtítulo */}
             <p className="text-white/70 max-w-2xl text-center text-base sm:text-lg md:text-xl leading-relaxed mt-3 mb-6 sm:mb-8 px-4 sm:px-0">
-              Aplica el Sistema de Validción Paga™ de la mano de Emprendedores que ya transformaron sus ideas en empresas exitosas.
+              Aplicá el Sistema de Validación Paga™ paso a paso, con acceso de por vida al programa, las herramientas y la metodología.
             </p>
-            
+
             {/* Community Image - Desktop después del subtítulo */}
             <div className="mb-8 sm:mb-12 w-full max-w-4xl px-2 hidden sm:block">
-              <img 
+              <img
                 src={communityImage}
                 alt="Comunidad de emprendedores Novolabs"
                 className="w-full h-auto rounded-xl sm:rounded-2xl shadow-xl border border-white/10"
               />
             </div>
-            
-            {/* Card del programa con Tabs */}
+
+            {/* Card del programa */}
             <div className="w-full max-w-lg px-2 sm:px-0">
               <div className="rounded-2xl sm:rounded-3xl bg-[#121212] border border-white/10 p-4 sm:p-6 md:p-8 shadow-2xl">
-                {/* Exclusive discount banner */}
-                <div className="mb-6 sm:mb-8 pb-3 sm:pb-4 border-b border-white/10">
-                  <div className="text-center mb-2">
-                    <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight leading-tight" style={{ color: "var(--nl-neon)" }}>
-                      El Programa de 4 meses incluye:
-                    </h3>
+
+                {/* Countdown timer */}
+                <div className="mb-6 flex items-center justify-center">
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#1e1e1e] border border-white/10">
+                    <span className="text-sm">⏳</span>
+                    <span className="text-white/60 text-xs sm:text-sm font-medium">Oferta termina en</span>
+                    <span className="font-mono font-bold text-sm sm:text-base tabular-nums" style={{ color: "var(--nl-rojo)" }}>
+                      {String(offerTimer.hours).padStart(2, "0")}:{String(offerTimer.minutes).padStart(2, "0")}:{String(offerTimer.seconds).padStart(2, "0")}
+                    </span>
                   </div>
                 </div>
 
-                <ul className="space-y-2 sm:space-y-3 text-white/80 mb-6 sm:mb-8">
-                  {[
-                    "Acceso por tiempo ilimitado al contenido del programa.",
-                    "Acceso a 16 sesiones grupales en vivo para compartir avances, recibir y dar feedback.",
-                    "Acceso a 6 sesiones 1:1 con mentores de Novolabs para avanzar más rápido y evitar errores comunes.",
-                    "Acceso a 6 masterclass con emprendedores top.",
-                    "Acceso a +120 lecciones en video de 5-10 minutos para que aprendas a tu ritmo.",
-                    "Acceso a +20 plantillas para que apliques el conocimiento en tu proyecto.",
-                    "Acceso al 'Novo Day' con inversores destacados para que puedas pitchear tu idea.",
-                    "Acceso al Club de Fundadores de Novolabs por 1 año.",
-                    "Certificación de 'Emprendedor Novo' al finalizar el programa con éxito.",
-                  ].map((b, i) => (
-                    <li key={i} className="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm leading-relaxed">
-                      <svg className="mt-0.5 h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" style={{ color: "var(--nl-neon)" }}>
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
+                {/* Inclusions list */}
+                <div className="mb-5 pb-4 border-b border-white/10">
+                  <h3 className="text-base sm:text-lg font-extrabold tracking-tight leading-tight text-white mb-4">
+                    Incluye:
+                  </h3>
+                  <ul className="space-y-2 sm:space-y-3 text-white/80">
+                    {[
+                      "7 etapas con videos, frameworks y ejercicios prácticos",
+                      "Herramientas de IA integradas (prompts para ChatGPT, Claude y Gemini)",
+                      "+20 plantillas para aplicar en tu proyecto",
+                      "Comunidad de emprendedores (directorio + grupo)",
+                      "Campus Novolabs centralizado",
+                      "Actualizaciones futuras incluidas",
+                      "Garantía de 7 días sin preguntas",
+                      "Acceso de por vida — sin cuotas ni renovaciones",
+                    ].map((b, i) => (
+                      <li key={i} className="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm leading-relaxed">
+                        <svg className="mt-0.5 h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" style={{ color: "var(--nl-neon)" }}>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
+                {/* Pricing */}
+                <div className="mb-6">
+                  {/* 50% OFF label */}
+                  <div className="mb-3">
+                    <span className="text-3xl sm:text-4xl font-black tracking-tight" style={{ color: "var(--nl-rojo)" }}>
+                      50% OFF
+                    </span>
+                  </div>
+                  {/* Strikethrough original price */}
+                  <div className="text-white/40 line-through text-lg sm:text-xl font-semibold mb-1">
+                    $780
+                  </div>
+                  {/* Final price */}
+                  <div className="text-white font-extrabold text-3xl sm:text-4xl leading-none mb-2">
+                    $390 <span className="text-xl sm:text-2xl font-bold text-white/80">USD</span>
+                  </div>
+                  <p className="text-white/50 text-xs sm:text-sm">Pago único · Acceso de por vida</p>
+                </div>
+
+                {/* CTAs */}
                 <div className="flex flex-col gap-2 sm:gap-3">
                   <a
-                    href="https://info.novolabs.xyz/widget/form/6ZZqIXf57PufpGPjoMaa"
+                    href="https://tally.so/r/gDYXaM"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full text-center rounded-lg sm:rounded-xl px-4 sm:px-6 py-3 sm:py-4 font-semibold shadow-lg transition-all hover:shadow-xl transform hover:scale-[1.02] relative overflow-hidden text-sm sm:text-base"
-                    style={{ 
-                      backgroundColor: "var(--nl-rojo)", 
+                    style={{
+                      backgroundColor: "var(--nl-rojo)",
                       color: "var(--nl-white)",
                       animation: "gentleSway 4s ease-in-out infinite"
                     }}
                   >
-                    <span className="relative z-10">Quiero emprender con Novolabs</span>
-                    <div 
+                    <span className="relative z-10">Ingresar al programa</span>
+                    <div
                       className="absolute inset-0 opacity-30"
                       style={{
                         background: "linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%)",
@@ -800,18 +850,10 @@ export default function App() {
                     ></div>
                   </a>
                   <a
-                    href={CONFIG.bookCallCta}
+                    href="https://wa.me/+5491163544698"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full text-center rounded-lg sm:rounded-xl px-4 sm:px-6 py-3 sm:py-4 font-semibold border border-white/10 text-white/90 hover:bg-white/5 transition-all text-sm sm:text-base"
-                  >
-                    Ver detalles
-                  </a>
-                  <a
-                    href={CONFIG.whatsappCta}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full text-center px-4 sm:px-6 py-3 sm:py-4 font-semibold text-white/90 hover:text-white transition-colors text-sm sm:text-base"
+                    className="w-full text-center px-4 sm:px-6 py-3 sm:py-4 font-semibold hover:text-white transition-colors text-sm sm:text-base"
                   >
                     <span className="break-words text-[rgba(96,162,96,0.9)]">Consultar por WhatsApp</span>
                   </a>
