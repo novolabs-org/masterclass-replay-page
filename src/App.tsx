@@ -261,7 +261,7 @@ export default function App() {
         <div className="flex flex-col items-center">
           {/* Título centrado */}
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight text-center">
-            Aprende a lanzar tu proyecto y conseguir los primeros clientes paso a paso 👇
+            Grabación de la Masterclass 👇
           </h1>
 
           {/* Video container centrado */}
@@ -279,7 +279,7 @@ export default function App() {
               </div>
             ) : (
               <iframe
-                src="https://streamable.com/e/6lbyra"
+                src="https://streamable.com/e/kzvdzt"
                 title="Masterclass Replay"
                 frameBorder="0"
                 allowFullScreen
@@ -355,7 +355,7 @@ export default function App() {
       {/* ===== COMMUNITY SECTION ===== */}
       <section
         className="w-full py-16 sm:py-20"
-        style={{ backgroundColor: CONFIG.brand.white }}
+        style={{ backgroundColor: CONFIG.brand.white, display: "none" }}
       >
         <div
           className="mx-auto max-w-4xl px-4 sm:px-8"
