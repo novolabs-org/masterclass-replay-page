@@ -442,7 +442,7 @@ export default function App() {
         <div className="text-center py-8 sm:py-12">
           {/* Main heading */}
           <h2 className="text-white font-extrabold mb-4 sm:mb-6 text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight px-2">
-            300+ Emprendedores de 18 países ya lanzaron con el Método Novo™
+            350+ personas en 18 países ya lanzaron su proyecto al mercado<br />con el Método Novo™
           </h2>
           
           {/* Trustpilot rating */}
@@ -745,7 +745,7 @@ export default function App() {
 
             {/* Subtítulo */}
             <p className="text-white/70 max-w-2xl text-center text-base sm:text-lg md:text-xl leading-relaxed mt-3 mb-8 px-4 sm:px-0">
-              Aplicá el Sistema de Validación Paga™ paso a paso, con acceso de por vida al programa, las herramientas y la metodología.
+              Aplicá el Sistema de Validación Paga™ paso a paso, con acceso de por vida al programa, las herramientas y la comunidad.
             </p>
 
             {/* ── PRICING CARD ── */}
