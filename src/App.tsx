@@ -825,22 +825,26 @@ export default function App() {
                       "Acceso de por vida — sin cuotas ni renovaciones",
                     ].map((item, i) => (
                       <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
-                        <span style={{
-                          flexShrink: 0,
-                          marginTop: "2px",
-                          width: "18px",
-                          height: "18px",
-                          borderRadius: "50%",
-                          background: "rgba(96,200,96,0.1)",
-                          border: "1px solid rgba(96,200,96,0.25)",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                        }}>
-                          <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#60c860" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M5 13l4 4L19 7"/>
-                          </svg>
-                        </span>
+                        {i >= 5 ? (
+                          <span style={{ flexShrink: 0, marginTop: "0px", fontSize: "18px" }}>🎁</span>
+                        ) : (
+                          <span style={{
+                            flexShrink: 0,
+                            marginTop: "2px",
+                            width: "18px",
+                            height: "18px",
+                            borderRadius: "50%",
+                            background: "rgba(96,200,96,0.1)",
+                            border: "1px solid rgba(96,200,96,0.25)",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}>
+                            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#60c860" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                              <path d="M5 13l4 4L19 7"/>
+                            </svg>
+                          </span>
+                        )}
                         <span style={{ color: "rgba(255,255,255,0.72)", fontSize: "14px", lineHeight: 1.55 }}>{item}</span>
                       </li>
                     ))}
