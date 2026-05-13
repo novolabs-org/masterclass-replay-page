@@ -815,11 +815,11 @@ export default function App() {
                   </p>
                   <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "14px" }}>
                     {[
-                      "7 etapas con videos, frameworks y ejercicios prácticos",
-                      "Herramientas de IA integradas (ChatGPT, Claude y Gemini)",
-                      "+20 plantillas para aplicar en tu proyecto",
-                      "Comunidad de emprendedores — directorio + grupo",
-                      "Campus Novolabs centralizado",
+                      "7 pasos del Sistema de Validación Paga",
+                      "+20 Asistentes de IA Especializados",
+                      "+10 Masterclass con emprendedores TOP",
+                      "Comunidad de emprendedores",
+                      "+30 mentores expertos disponibles",
                       "Actualizaciones futuras incluidas",
                       "Garantía de 7 días sin preguntas",
                       "Acceso de por vida — sin cuotas ni renovaciones",
